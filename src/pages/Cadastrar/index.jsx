@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 import Header from '../../Header';
 
-const Login = () => {
+const Cadastrar = () => {
     return (
         <div>
             <Header />
-            <h1>Login</h1>
-            <Link to="/cadastrar">Fazer cadastro</Link>
+            <h1>Cadastrar</h1>
+            <Link to="/login">Fazer login</Link>
             <Link to="/">Voltar para home</Link>
         </div>
     );
 };
 
-export default Login;
+export default Cadastrar;

@@ -1,15 +1,17 @@
 import { styled, css } from 'styled-components';
 
 export const ButtonContainer = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #fff;
-    text-align: center;
+    padding: 2px;
     font-family: Open Sans;
     font-size: 18px;
     line-height: normal;
     background-color: #565656;
     border-radius: 22px;
     min-width: 120px;
-    height: 25px;
     border: none;
     transition: all 150ms linear;
 
@@ -17,8 +19,8 @@ export const ButtonContainer = styled.button`
         background-color: #333333;
     }
 
-    ${({ variant }) =>
-        variant === 'primary' &&
+    ${({ $variant }) =>
+        $variant === 'primary' &&
         css`
             min-width: 167px;
             height: 33px;

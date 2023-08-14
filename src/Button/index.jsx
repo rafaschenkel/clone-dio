@@ -1,9 +1,9 @@
 import { ButtonContainer } from './styles';
 
-const Button = ({ title, variant = 'secondary', onClick }) => {
+const Button = ({ title, $variant = 'secondary', onClick }) => {
     return (
         <ButtonContainer
-            variant={variant}
+            $variant={$variant}
             onClick={onClick}
         >
             {title}
