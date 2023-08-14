@@ -47,16 +47,3 @@ export const Profile = styled.img`
     border-radius: 50%;
     border: 2px solid #fff;
 `;
-
-export const MenuDropDown = styled.button`
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    border: none;
-    transition: all 0.2s linear;
-
-    img {
-        width: 25px;
-        height: 25px;
-    }
-`;
