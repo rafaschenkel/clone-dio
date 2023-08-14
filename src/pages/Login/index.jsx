@@ -5,8 +5,15 @@ import Input from '../../Input';
 import { MdEmail, MdLock } from 'react-icons/md';
 
 import { Container, Link, Links, LoginContainer, TextContent, Title, TitleLogin } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
+
+    const handleClickSingIn = () => {
+        navigate('/feed');
+    };
+
     return (
         <div>
             <Header />
@@ -33,6 +40,8 @@ const Login = () => {
                     <Button
                         title="Entrar"
                         $variant="primary"
+                        onClick={handleClickSingIn}
+                        type="button"
                     />
                     <Links>
                         <Link href="#">Esqueci minha senha</Link>

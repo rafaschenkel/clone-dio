@@ -1,10 +1,17 @@
 // import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../Button';
 import Header from '../../Header';
 import banner from '../../assets/banner.png';
 import { Column, Container, Image, TextContent, Title, TitleHighLight } from './styles';
 
 const Home = () => {
+    const navigate = useNavigate();
+
+    const handleClickSingIn = () => {
+        navigate('/login');
+    };
+
     return (
         <div>
             <Header />
@@ -22,6 +29,7 @@ const Home = () => {
                     <Button
                         title="Começar agora"
                         $variant="primary"
+                        onClick={handleClickSingIn}
                     />
                 </Column>
 
