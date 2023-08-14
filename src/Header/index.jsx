@@ -2,6 +2,7 @@ import { Container, Row, Menu, MenuRight, Wrapper } from './styles';
 import logo from '../assets/logo.png';
 import Button from '../Button';
 import Input from '../Input';
+import { MdSearch } from 'react-icons/md';
 
 const Header = () => {
     return (
@@ -12,7 +13,10 @@ const Header = () => {
                         src={logo}
                         alt="Logo da DIO"
                     />
-                    <Input placeholder="BUSCAR" />
+                    <Input
+                        icon={<MdSearch size={25} />}
+                        placeholder="BUSCAR"
+                    />
                     <Menu href="#">Live Code</Menu>
                     <Menu href="#">Global</Menu>
                 </Row>
