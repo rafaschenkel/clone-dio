@@ -13,7 +13,7 @@ export const ButtonContainer = styled.button`
     border-radius: 22px;
     min-width: 120px;
     border: none;
-    transition: all 150ms linear;
+    transition: all 0.2s linear;
 
     &:hover {
         background-color: #333333;
@@ -30,7 +30,7 @@ export const ButtonContainer = styled.button`
 
             &:hover {
                 background-color: #e41050;
-                box-shadow: 0px 0px 50px 15px #e41050;
+                box-shadow: 0 0 25px 10px #e41050;
             }
 
             &::after {

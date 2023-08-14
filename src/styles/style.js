@@ -12,5 +12,6 @@ export const GlobalStyle = createGlobalStyle`
     body {
         background-color: #1E192C;
         font-family: 'Open Sans', sans-serif;
+        color: #FFF;
     }
 `;

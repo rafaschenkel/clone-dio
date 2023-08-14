@@ -1,15 +1,5 @@
-import {
-    Container,
-    ContainerSecondary,
-    Menu,
-    MenuDropDown,
-    MenuRight,
-    Profile,
-    Wrapper
-} from './styles';
+import { Container, Row, Menu, MenuRight, Wrapper } from './styles';
 import logo from '../assets/logo.png';
-import profile from '../assets/profile.jpg';
-import menuIcon from '../assets/menu.svg';
 import Button from '../Button';
 import Input from '../Input';
 
@@ -17,7 +7,7 @@ const Header = () => {
     return (
         <Wrapper>
             <Container>
-                <ContainerSecondary>
+                <Row>
                     <img
                         src={logo}
                         alt="Logo da DIO"
@@ -25,19 +15,12 @@ const Header = () => {
                     <Input placeholder="BUSCAR" />
                     <Menu href="#">Live Code</Menu>
                     <Menu href="#">Global</Menu>
-                </ContainerSecondary>
+                </Row>
                 <MenuRight>
                     <Menu href="#">Home</Menu>
                     <Button title="Entrar" />
                     <Button title="Cadastrar" />
                 </MenuRight>
-                <Profile src={profile} />
-                <MenuDropDown>
-                    <img
-                        src={menuIcon}
-                        alt="icone do menu"
-                    />
-                </MenuDropDown>
             </Container>
         </Wrapper>
     );

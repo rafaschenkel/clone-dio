@@ -10,5 +10,4 @@ export const InputContainer = styled.input`
     padding: 5px 25px;
     min-width: 100px;
     max-width: 300px;
-    margin: 0 25px;
 `;

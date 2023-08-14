@@ -16,12 +16,18 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 `;
 
-export const ContainerSecondary = styled.div`
-    width: 100%;
+export const Row = styled.div`
     display: flex;
     align-items: center;
+    gap: 15px;
+`;
+
+export const Column = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
 
 export const MenuRight = styled.div`
@@ -31,9 +37,8 @@ export const MenuRight = styled.div`
 `;
 
 export const Menu = styled.a`
-    color: #ffffff;
     text-decoration: none;
-    margin-right: 10px;
+    color: #fff;
 `;
 
 export const Profile = styled.img`
@@ -41,7 +46,6 @@ export const Profile = styled.img`
     height: 41px;
     border-radius: 50%;
     border: 2px solid #fff;
-    margin-left: 10px;
 `;
 
 export const MenuDropDown = styled.button`
@@ -49,8 +53,6 @@ export const MenuDropDown = styled.button`
     height: 40px;
     background-color: transparent;
     border: none;
-    color: #fff;
-    margin-left: 10px;
     transition: all 0.2s linear;
 
     img {
