@@ -3,16 +3,43 @@ import Button from '../../Button';
 import Header from '../../Header';
 import Input from '../../Input';
 import { MdEmail, MdLock } from 'react-icons/md';
+import { useForm } from 'react-hook-form';
 
-import { Container, Link, Links, LoginContainer, TextContent, Title, TitleLogin } from './styles';
-import { useNavigate } from 'react-router-dom';
+import {
+    Container,
+    Link,
+    Links,
+    LoginContainer,
+    TextContent,
+    Title,
+    TitleLogin,
+    Form
+} from './styles';
+
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+const schema = yup
+    .object({
+        email: yup.string().email('E-mail inválido!').required('E-mail deve estar preenchido!'),
+        password: yup
+            .string()
+            .min(3, 'Senha deve conter ao menos 3 caracteres!')
+            .required('Password deve estar preenchido!')
+    })
+    .required();
 
 const Login = () => {
-    const navigate = useNavigate();
-
-    const handleClickSingIn = () => {
-        navigate('/feed');
-    };
+    const {
+        control,
+        handleSubmit,
+        // eslint-disable-next-line no-unused-vars
+        formState: { errors, isValid }
+    } = useForm({
+        resolver: yupResolver(schema),
+        mode: 'onBlur'
+    });
+    const onSubmit = data => console.log(data);
 
     return (
         <div>
@@ -26,23 +53,28 @@ const Login = () => {
                 <LoginContainer>
                     <TitleLogin>Faça seu cadastro</TitleLogin>
                     <TextContent>Faça seu login e make the change._</TextContent>
-                    <Input
-                        icon={<MdEmail size={20} />}
-                        placeholder="E-mail"
-                        $form
-                    />
-                    <Input
-                        icon={<MdLock size={20} />}
-                        placeholder="Password"
-                        type="password"
-                        $form
-                    />
-                    <Button
-                        title="Entrar"
-                        $variant="primary"
-                        onClick={handleClickSingIn}
-                        type="button"
-                    />
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+                        <Input
+                            icon={<MdEmail size={16} />}
+                            placeholder="E-mail"
+                            control={control}
+                            name="email"
+                            errorMessage={errors?.email?.message}
+                        />
+                        <Input
+                            icon={<MdLock size={16} />}
+                            placeholder="Password"
+                            type="password"
+                            control={control}
+                            name="password"
+                            errorMessage={errors?.password?.message}
+                        />
+                        <Button
+                            title="Entrar"
+                            $variant="primary"
+                            type="submit"
+                        />
+                    </Form>
                     <Links>
                         <Link href="#">Esqueci minha senha</Link>
                         <Link
@@ -54,9 +86,6 @@ const Login = () => {
                     </Links>
                 </LoginContainer>
             </Container>
-
-            {/* <Link to="/cadastrar">Fazer cadastro</Link>
-            <Link to="/">Voltar para home</Link> */}
         </div>
     );
 };

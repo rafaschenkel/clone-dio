@@ -38,9 +38,6 @@ const Home = () => {
                     alt="imagem destaque"
                 />
             </Container>
-
-            {/* <Link to="/login">Fazer login</Link>
-            <Link to="/cadastrar">Fazer cadastro</Link> */}
         </div>
     );
 };

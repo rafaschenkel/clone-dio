@@ -3,9 +3,9 @@ import { css, styled } from 'styled-components';
 export const Container = styled.main`
     width: 100%;
     max-width: 80%;
-    height: 90vh;
     margin: 0 auto;
     display: flex;
+    height: 90vh;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
@@ -17,6 +17,12 @@ export const LoginContainer = styled.div`
     justify-content: center;
     gap: 35px;
     margin-right: 100px;
+`;
+
+export const Form = styled.form`
+    button {
+        margin-top: 50px;
+    }
 `;
 
 export const Title = styled.h2`
@@ -38,6 +44,7 @@ export const Links = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 20px;
 `;
 
 export const Link = styled.a`

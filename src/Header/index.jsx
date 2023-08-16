@@ -1,7 +1,16 @@
-import { Container, Row, Menu, MenuRight, Wrapper, Profile } from './styles';
+import {
+    Container,
+    Row,
+    Menu,
+    MenuRight,
+    Wrapper,
+    Profile,
+    InputContainer,
+    InputText,
+    IconContainer
+} from './styles';
 import logo from '../assets/logo.png';
 import Button from '../Button';
-import Input from '../Input';
 import { MdSearch } from 'react-icons/md';
 import { BsChevronDown } from 'react-icons/bs';
 
@@ -16,10 +25,11 @@ const Header = ({ autenticado }) => {
                     />
                     {autenticado ? (
                         <>
-                            <Input
-                                icon={<MdSearch size={25} />}
-                                placeholder="BUSCAR"
-                            />
+                            <InputContainer>
+                                <IconContainer>{<MdSearch size={25} />}</IconContainer>
+                                <InputText placeholder="BUSCAR" />
+                            </InputContainer>
+
                             <Menu href="#">Live Code</Menu>
                             <Menu href="#">Global</Menu>
                         </>
