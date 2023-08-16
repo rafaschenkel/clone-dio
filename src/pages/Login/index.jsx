@@ -1,9 +1,10 @@
-// import { Link } from 'react-router-dom';
+/* eslint-disable no-unused-vars */
 import Button from '../../Button';
 import Header from '../../Header';
 import Input from '../../Input';
 import { MdEmail, MdLock } from 'react-icons/md';
 import { useForm } from 'react-hook-form';
+import { api } from '../../services/api';
 
 import {
     Container,
@@ -34,8 +35,7 @@ const Login = () => {
     const {
         control,
         handleSubmit,
-        // eslint-disable-next-line no-unused-vars
-        formState: { errors, isValid }
+        formState: { errors }
     } = useForm({
         resolver: yupResolver(schema),
         mode: 'onBlur'
@@ -43,8 +43,17 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const onSubmit = data => {
-        data.email === 'rafa@teste.com.br' && data.password === '1234' ? navigate('/feed') : null;
+    const onSubmit = async formData => {
+        try {
+            const user = await api.get(
+                `users?email=${formData.email}&password=${formData.password}`
+            );
+            (await user.data.length) !== 0
+                ? navigate('/feed')
+                : alert('Usuário ou senha inválidos!');
+        } catch (error) {
+            alert('Houve um erro, tente novamente!');
+        }
     };
 
     return (
