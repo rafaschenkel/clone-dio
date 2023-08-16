@@ -10,6 +10,7 @@ const Input = ({ icon, control, name, errorMessage, ...rest }) => {
                     name={name}
                     control={control}
                     rules={{ required: true }}
+                    defaultValue=""
                     render={({ field }) => (
                         <InputText
                             {...field}

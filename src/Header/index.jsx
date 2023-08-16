@@ -13,8 +13,19 @@ import logo from '../assets/logo.png';
 import Button from '../Button';
 import { MdSearch } from 'react-icons/md';
 import { BsChevronDown } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ autenticado }) => {
+    const navigate = useNavigate();
+
+    const handleClickSingIn = () => {
+        navigate('/login');
+    };
+
+    const handleClickHome = () => {
+        navigate('/');
+    };
+
     return (
         <Wrapper>
             <Container>
@@ -52,8 +63,11 @@ const Header = ({ autenticado }) => {
                 ) : (
                     <>
                         <MenuRight>
-                            <Menu href="#">Home</Menu>
-                            <Button title="Entrar" />
+                            <Menu onClick={handleClickHome}>Home</Menu>
+                            <Button
+                                title="Entrar"
+                                onClick={handleClickSingIn}
+                            />
                             <Button title="Cadastrar" />
                         </MenuRight>
                     </>

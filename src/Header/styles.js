@@ -39,6 +39,7 @@ export const MenuRight = styled.div`
 export const Menu = styled.a`
     text-decoration: none;
     color: #fff;
+    cursor: pointer;
 `;
 
 export const Profile = styled.img`

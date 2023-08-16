@@ -18,6 +18,7 @@ import {
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 const schema = yup
     .object({
@@ -39,7 +40,12 @@ const Login = () => {
         resolver: yupResolver(schema),
         mode: 'onBlur'
     });
-    const onSubmit = data => console.log(data);
+
+    const navigate = useNavigate();
+
+    const onSubmit = data => {
+        data.email === 'rafa@teste.com.br' && data.password === '1234' ? navigate('/feed') : null;
+    };
 
     return (
         <div>
