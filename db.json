@@ -1,6 +1,22 @@
 {
-    "users": [
-        { "id": 1, "email": "rafa@teste.com.br", "password": "1234" },
-        { "id": 1, "email": "amora@teste.com.br", "password": "1234" }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "name": "Rafael Schenkel",
+      "email": "rafa@teste.com.br",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "name": "Jéssica Amaral",
+      "email": "jessica@teste.com.br",
+      "password": "1234"
+    },
+    {
+      "id": 3,
+      "name": "Amora Akita",
+      "email": "amora@teste.com.br",
+      "password": "1234"
+    }
+  ]
 }
