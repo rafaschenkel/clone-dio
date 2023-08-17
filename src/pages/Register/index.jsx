@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import Button from '../../Button';
 import Header from '../../Header';
 import Input from '../../Input';
@@ -46,8 +45,9 @@ const Register = () => {
 
     const onSubmit = async formData => {
         try {
+            const registers = await api.get('users/');
             const newUser = {
-                id: 3,
+                id: registers.data.length + 1,
                 name: formData.name,
                 email: formData.email,
                 password: formData.password
@@ -56,9 +56,10 @@ const Register = () => {
             await api.post('users/', newUser, {
                 'Content-Type': 'application/json'
             });
+            alert('Cadastro realizado com sucesso!');
+            navigate('/login');
         } catch (error) {
             alert('Houve um erro, tente novamente!');
-            console.log(error);
         }
     };
 

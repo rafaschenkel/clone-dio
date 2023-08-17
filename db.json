@@ -1,22 +1,28 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "Rafael Schenkel",
-      "email": "rafa@teste.com.br",
-      "password": "1234"
-    },
-    {
-      "id": 2,
-      "name": "Jéssica Amaral",
-      "email": "jessica@teste.com.br",
-      "password": "1234"
-    },
-    {
-      "id": 3,
-      "name": "Amora Akita",
-      "email": "amora@teste.com.br",
-      "password": "1234"
-    }
-  ]
+    "users": [
+        {
+            "id": 1,
+            "name": "Rafael Schenkel",
+            "email": "rafa@teste.com.br",
+            "password": "1234"
+        },
+        {
+            "id": 2,
+            "name": "Jéssica Amaral",
+            "email": "jessica@teste.com.br",
+            "password": "1234"
+        },
+        {
+            "id": 3,
+            "name": "Amora Akita",
+            "email": "amora@teste.com.br",
+            "password": "1234"
+        },
+        {
+            "id": 4,
+            "name": "Jade viralata",
+            "email": "jade@teste.com.br",
+            "password": "3214"
+        }
+    ]
 }
