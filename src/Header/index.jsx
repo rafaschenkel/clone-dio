@@ -18,12 +18,14 @@ import { useNavigate } from 'react-router-dom';
 const Header = ({ autenticado }) => {
     const navigate = useNavigate();
 
-    const handleClickSingIn = () => {
-        navigate('/login');
-    };
-
     const handleClickHome = () => {
         navigate('/');
+    };
+    const handleClickSignIn = () => {
+        navigate('/login');
+    };
+    const handleClickRegister = () => {
+        navigate('/register');
     };
 
     return (
@@ -66,9 +68,12 @@ const Header = ({ autenticado }) => {
                             <Menu onClick={handleClickHome}>Home</Menu>
                             <Button
                                 title="Entrar"
-                                onClick={handleClickSingIn}
+                                onClick={handleClickSignIn}
                             />
-                            <Button title="Cadastrar" />
+                            <Button
+                                title="Cadastrar"
+                                onClick={handleClickRegister}
+                            />
                         </MenuRight>
                     </>
                 )}

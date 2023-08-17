@@ -1,11 +1,12 @@
 import { styled } from 'styled-components';
 
 export const Container = styled.main`
-    width: 100%;
-    max-width: 80%;
+    width: 80%;
+    max-width: 1440px;
     margin: 40px auto;
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 `;
 
 export const Cards = styled.div`

@@ -1,13 +1,13 @@
 import { styled } from 'styled-components';
 
 export const Container = styled.main`
-    width: 100%;
-    max-width: 80%;
-    height: 90vh;
+    width: 80%;
+    max-width: 1440px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 50px;
 `;
 
 export const Column = styled.div`

@@ -1,27 +1,26 @@
 import { css, styled } from 'styled-components';
 
 export const Container = styled.main`
-    width: 100%;
-    max-width: 80%;
+    width: 80%;
+    max-width: 1440px;
     margin: 0 auto;
     display: flex;
-    height: 90vh;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    margin-top: 50px;
 `;
 
 export const LoginContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 35px;
-    margin-right: 100px;
+    gap: 25px;
+    width: 374px;
 `;
 
 export const Form = styled.form`
     button {
-        margin-top: 50px;
+        margin-top: 40px;
     }
 `;
 
@@ -42,9 +41,8 @@ export const TextContent = styled.p`
 
 export const Links = styled.div`
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-top: 20px;
+    gap: 40px;
 `;
 
 export const Link = styled.a`

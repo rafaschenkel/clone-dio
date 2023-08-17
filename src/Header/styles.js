@@ -17,6 +17,7 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    max-width: 1440px;
 `;
 
 export const Row = styled.div`

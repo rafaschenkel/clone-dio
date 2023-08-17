@@ -24,6 +24,8 @@ export const ButtonContainer = styled.button`
         $variant === 'primary' &&
         css`
             min-width: 167px;
+            width: 100%;
+            max-width: 280px;
             height: 33px;
 
             background-color: #e41050;

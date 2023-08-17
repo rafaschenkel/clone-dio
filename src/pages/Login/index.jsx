@@ -23,11 +23,8 @@ import { useNavigate } from 'react-router-dom';
 
 const schema = yup
     .object({
-        email: yup.string().email('E-mail inválido!').required('E-mail deve estar preenchido!'),
-        password: yup
-            .string()
-            .min(3, 'Senha deve conter ao menos 3 caracteres!')
-            .required('Password deve estar preenchido!')
+        email: yup.string().email('E-mail inválido!').required('Digite seu email!'),
+        password: yup.string().required('Digite sua senha!')
     })
     .required();
 
