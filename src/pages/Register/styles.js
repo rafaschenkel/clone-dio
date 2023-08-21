@@ -8,7 +8,7 @@ export const Container = styled.main`
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    margin-top: 50px;
+    margin-top: 30px;
 `;
 
 export const LoginContainer = styled.div`
@@ -44,7 +44,7 @@ export const Links = styled.div`
     justify-content: flex-start;
     gap: 10px;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
 `;
 
 export const Link = styled.a`

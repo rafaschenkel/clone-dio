@@ -46,6 +46,7 @@ const Register = () => {
     const onSubmit = async formData => {
         try {
             const registers = await api.get('users/');
+
             const newUser = {
                 id: registers.data.length + 1,
                 name: formData.name,
@@ -53,13 +54,16 @@ const Register = () => {
                 password: formData.password
             };
 
+            registers.data.map(({ email }) => {
+                if (email === newUser.email) throw new Error('Email já cadastrado!');
+            });
             await api.post('users/', newUser, {
                 'Content-Type': 'application/json'
             });
             alert('Cadastro realizado com sucesso!');
             navigate('/login');
         } catch (error) {
-            alert('Houve um erro, tente novamente!');
+            alert(error.message);
         }
     };
 
