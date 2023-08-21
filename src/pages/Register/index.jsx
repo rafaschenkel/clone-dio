@@ -69,7 +69,7 @@ const Register = () => {
 
     return (
         <div>
-            <Header />
+            <Header page="cadastrar" />
 
             <Container>
                 <Title>

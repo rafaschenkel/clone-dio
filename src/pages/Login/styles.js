@@ -9,13 +9,23 @@ export const Container = styled.main`
     align-items: center;
     gap: 20px;
     margin-top: 50px;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 `;
 
 export const LoginContainer = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 25px;
     width: 374px;
+
+    @media screen and (max-width: 768px) {
+        width: auto;
+    }
 `;
 
 export const Form = styled.form`
@@ -28,6 +38,11 @@ export const Title = styled.h2`
     font-size: 32px;
     font-weight: 700;
     width: 565px;
+
+    @media screen and (max-width: 768px) {
+        width: auto;
+        font-size: 20px;
+    }
 `;
 
 export const TitleLogin = styled.h2`

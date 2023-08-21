@@ -14,7 +14,7 @@ const Home = () => {
 
     return (
         <div>
-            <Header />
+            <Header page="home" />
 
             <Container>
                 <Column>

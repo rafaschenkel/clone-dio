@@ -55,7 +55,7 @@ const Login = () => {
 
     return (
         <div>
-            <Header />
+            <Header page="login" />
 
             <Container>
                 <Title>

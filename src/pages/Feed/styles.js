@@ -19,6 +19,10 @@ export const Ranking = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media screen and (max-width: 600px) {
+        display: none;
+    }
 `;
 
 export const Column = styled.div`

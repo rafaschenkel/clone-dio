@@ -7,7 +7,7 @@ import { Cards, Container, Ranking, SubTitle, Title } from './styles';
 const Feed = () => {
     return (
         <div>
-            <Header autenticado={true} />
+            <Header page="feed" />
 
             <Container>
                 <Cards>

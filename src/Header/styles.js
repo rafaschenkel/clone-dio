@@ -41,6 +41,16 @@ export const Menu = styled.a`
     text-decoration: none;
     color: #fff;
     cursor: pointer;
+
+    @media screen and (max-width: 445px) {
+        display: none;
+    }
+`;
+
+export const Logoff = styled.a`
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
 `;
 
 export const Profile = styled.img`
@@ -57,6 +67,10 @@ export const InputContainer = styled.div`
     border-radius: 11px;
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 `;
 
 export const IconContainer = styled.i`
