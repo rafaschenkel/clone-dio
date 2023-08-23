@@ -1,7 +1,9 @@
+import React from 'react';
 import { InputContainer, InputText, IconContainer, ErrorText, Container } from './styles';
 import { Controller } from 'react-hook-form';
+import { IInput } from './types';
 
-const Input = ({ icon, control, name, errorMessage, ...rest }) => {
+const Input = ({ icon, control, name, errorMessage, ...rest } : IInput) => {
     return (
         <>
             <Container>
@@ -12,9 +14,10 @@ const Input = ({ icon, control, name, errorMessage, ...rest }) => {
                         control={control}
                         rules={{ required: true }}
                         defaultValue=""
-                        render={({ field }) => (
+                        render={({ field: {value, onChange} }) => (
                             <InputText
-                                {...field}
+                                value={value}
+                                onChange={onChange}
                                 {...rest}
                             />
                         )}

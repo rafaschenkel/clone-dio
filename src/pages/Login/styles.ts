@@ -1,4 +1,5 @@
 import { css, styled } from 'styled-components';
+import { ILinkStyle } from './types';
 
 export const Container = styled.main`
     width: 80%;
@@ -60,7 +61,7 @@ export const Links = styled.div`
     gap: 40px;
 `;
 
-export const Link = styled.a`
+export const Link = styled.a<ILinkStyle>`
     text-decoration: none;
     font-size: 14px;
     font-weight: 700;

@@ -15,8 +15,10 @@ import Button from '../Button';
 import { MdSearch } from 'react-icons/md';
 import { BsChevronDown } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { IHeader } from './types';
 
-const Header = ({ page }) => {
+const Header = ({ page } : IHeader) => {
     const navigate = useNavigate();
 
     const handleClickHome = () => {

@@ -4,6 +4,7 @@ import Button from '../../Button';
 import Header from '../../Header';
 import banner from '../../assets/banner.png';
 import { Column, Container, Image, TextContent, Title, TitleHighLight } from './styles';
+import React from 'react';
 
 const Home = () => {
     const navigate = useNavigate();

@@ -1,3 +1,4 @@
+import React from 'react';
 import { CardContainer, Image, Profile, CardInfo, UserInfo, PostInfo, HasInfo } from './styles';
 import { FiThumbsUp } from 'react-icons/fi';
 

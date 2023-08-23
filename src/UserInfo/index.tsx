@@ -1,6 +1,8 @@
+import React from 'react';
 import { UserInfoContainer, UserPicture, ProgressBar } from './styles';
+import { IUserInfo } from './types';
 
-const UserInfo = ({ image, name, $percentual = 0 }) => {
+const UserInfo = ({ image, name, $percentual = 0 } :IUserInfo) => {
     return (
         <UserInfoContainer>
             <UserPicture

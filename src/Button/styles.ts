@@ -1,6 +1,7 @@
 import { styled, css } from 'styled-components';
+import { IButtonStyled } from './types';
 
-export const ButtonContainer = styled.button`
+export const ButtonContainer = styled.button<IButtonStyled>`
     display: flex;
     align-items: center;
     justify-content: center;

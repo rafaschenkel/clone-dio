@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import Button from '../../Button';
 import Header from '../../Header';
 import Input from '../../Input';
-import { MdEmail, MdLock, MdPerson } from 'react-icons/md';
+import { MdEmail, MdLock } from 'react-icons/md';
 import { useForm } from 'react-hook-form';
 import { api } from '../../services/api';
 
@@ -19,57 +20,44 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { IFormData } from './types';
 
 const schema = yup
     .object({
-        name: yup.string().required('Nome deve estar preenchido!'),
-        email: yup.string().email('E-mail inválido!').required('E-mail deve estar preenchido!'),
-        password: yup
-            .string()
-            .min(3, 'Senha deve conter ao menos 3 caracteres!')
-            .required('Password deve estar preenchido!')
+        email: yup.string().email('E-mail inválido!').required('Digite seu email!'),
+        password: yup.string().required('Digite sua senha!')
     })
     .required();
 
-const Register = () => {
+const Login = () => {
     const {
         control,
         handleSubmit,
         formState: { errors }
-    } = useForm({
+    } = useForm<IFormData>({
         resolver: yupResolver(schema),
         mode: 'onBlur'
     });
 
     const navigate = useNavigate();
 
-    const onSubmit = async formData => {
+    const onSubmit = async (formData: IFormData) => {
         try {
-            const registers = await api.get('users/');
-
-            const newUser = {
-                id: registers.data.length + 1,
-                name: formData.name,
-                email: formData.email,
-                password: formData.password
-            };
-
-            registers.data.map(({ email }) => {
-                if (email === newUser.email) throw new Error('Email já cadastrado!');
-            });
-            await api.post('users/', newUser, {
-                'Content-Type': 'application/json'
-            });
-            alert('Cadastro realizado com sucesso!');
-            navigate('/login');
+            const user = await api.get(
+                `users?email=${formData.email}&password=${formData.password}`
+            );
+            (await user.data.length) !== 0
+                ? navigate('/feed')
+                : alert('Usuário ou senha inválidos!');
         } catch (error) {
-            alert(error.message);
+            alert('Houve um erro, tente novamente!');
         }
     };
 
     return (
         <div>
-            <Header page="cadastrar" />
+            <Header page="login" />
 
             <Container>
                 <Title>
@@ -77,16 +65,9 @@ const Register = () => {
                     entrar mais rápido nas empresas mais desejadas.
                 </Title>
                 <LoginContainer>
-                    <TitleLogin>Comece agora grátis</TitleLogin>
-                    <TextContent>Crie sua conta e make the change._</TextContent>
+                    <TitleLogin>Faça seu cadastro</TitleLogin>
+                    <TextContent>Faça seu login e make the change._</TextContent>
                     <Form onSubmit={handleSubmit(onSubmit)}>
-                        <Input
-                            icon={<MdPerson size={16} />}
-                            placeholder="Nome completo"
-                            control={control}
-                            name="name"
-                            errorMessage={errors?.name?.message}
-                        />
                         <Input
                             icon={<MdEmail size={16} />}
                             placeholder="E-mail"
@@ -103,17 +84,13 @@ const Register = () => {
                             errorMessage={errors?.password?.message}
                         />
                         <Button
-                            title="Criar minha conta"
+                            title="Entrar"
                             $variant="primary"
                             type="submit"
                         />
                     </Form>
-                    <TextContent>
-                        Ao clicar em &quot;criar minha conta grátis&quot;, declaro que aceito as
-                        Políticas de Privacidade e os Termos de Uso da DIO.
-                    </TextContent>
                     <Links>
-                        <Link href="#">Já tenho conta.</Link>
+                        <Link href="#">Esqueci minha senha</Link>
                         <Link
                             href="#"
                             $variant="green"
@@ -127,4 +104,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;

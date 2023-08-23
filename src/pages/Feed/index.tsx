@@ -3,6 +3,7 @@ import Card from '../../Card';
 import UserInfo from '../../UserInfo';
 import Header from '../../Header';
 import { Cards, Container, Ranking, SubTitle, Title } from './styles';
+import React from 'react';
 
 const Feed = () => {
     return (

@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { IProgressBarStyle, IUserPicture } from './types';
 
 export const UserInfoContainer = styled.div`
     display: flex;
@@ -14,14 +15,14 @@ export const UserInfoContainer = styled.div`
     }
 `;
 
-export const UserPicture = styled.img`
+export const UserPicture = styled.img<IUserPicture>`
     width: 41px;
     height: 41px;
     border-radius: 50%;
     border: 2px solid #fff;
 `;
 
-export const ProgressBar = styled.div`
+export const ProgressBar = styled.div<IProgressBarStyle>`
     height: 8px;
     border-radius: 10px;
     background-color: #fff;
