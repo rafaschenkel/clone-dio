@@ -15,11 +15,11 @@ import Button from '../Button';
 import { MdSearch } from 'react-icons/md';
 import { BsChevronDown } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
-import React, { useContext } from 'react';
-import { AuthContext } from '../context/auth';
+import React from 'react';
+import { useAuth } from '../hooks/useAuth';
 
 const Header = () => {
-    const { user, handleLogoff } = useContext(AuthContext);
+    const { user, handleLogoff } = useAuth();
     const autenticado = user.name && true;
 
     const navigate = useNavigate();
