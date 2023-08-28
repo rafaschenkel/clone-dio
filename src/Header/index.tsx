@@ -15,10 +15,13 @@ import Button from '../Button';
 import { MdSearch } from 'react-icons/md';
 import { BsChevronDown } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
-import React from 'react';
-import { IHeader } from './types';
+import React, { useContext } from 'react';
+import { AuthContext } from '../context/auth';
 
-const Header = ({ page } : IHeader) => {
+const Header = () => {
+    const { user, handleLogoff } = useContext(AuthContext);
+    const autenticado = user.name && true;
+
     const navigate = useNavigate();
 
     const handleClickHome = () => {
@@ -39,7 +42,7 @@ const Header = ({ page } : IHeader) => {
                         src={logo}
                         alt="Logo da DIO"
                     />
-                    {page === 'feed' ? (
+                    {autenticado && (
                         <>
                             <InputContainer>
                                 <IconContainer>{<MdSearch size={25} />}</IconContainer>
@@ -49,9 +52,9 @@ const Header = ({ page } : IHeader) => {
                             <Menu href="#">Live Code</Menu>
                             <Menu href="#">Global</Menu>
                         </>
-                    ) : null}
+                    )}
                 </Row>
-                {page === 'feed' ? (
+                {autenticado ? (
                     <>
                         <MenuRight>
                             <Profile
@@ -63,20 +66,20 @@ const Header = ({ page } : IHeader) => {
                                 color="#FFF"
                                 fontWeight={700}
                             />
-                            <Logoff onClick={handleClickSignIn}>Sair</Logoff>
+                            <Logoff onClick={handleLogoff}>Sair</Logoff>
                         </MenuRight>
                     </>
                 ) : (
                     <>
                         <MenuRight>
-                            {page !== 'home' && <Menu onClick={handleClickHome}>Home</Menu>}
-                            {page !== 'login' && page !== 'home' && (
+                            {!autenticado && <Menu onClick={handleClickHome}>Home</Menu>}
+                            {!autenticado && (
                                 <Button
                                     title="Entrar"
                                     onClick={handleClickSignIn}
                                 />
                             )}
-                            {page !== 'cadastrar' && (
+                            {!autenticado && (
                                 <Button
                                     title="Cadastrar"
                                     onClick={handleClickRegister}

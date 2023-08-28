@@ -57,7 +57,7 @@ const Register = () => {
                 password: formData.password
             } as IUser;
 
-            dataRegister.map((data:{email:string}) => {
+            dataRegister.map((data: { email: string }) => {
                 if (data.email === newUser.email) throw new Error('Email já cadastrado!');
             });
             await api.post('users/', newUser);
@@ -70,7 +70,7 @@ const Register = () => {
 
     return (
         <div>
-            <Header page="cadastrar" />
+            <Header />
 
             <Container>
                 <Title>

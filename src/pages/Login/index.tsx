@@ -4,7 +4,6 @@ import Header from '../../Header';
 import Input from '../../Input';
 import { MdEmail, MdLock } from 'react-icons/md';
 import { useForm } from 'react-hook-form';
-import { api } from '../../services/api';
 
 import {
     Container,
@@ -19,9 +18,9 @@ import {
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { useNavigate } from 'react-router-dom';
-import React from 'react';
+import React, { useContext } from 'react';
 import { IFormData } from './types';
+import { AuthContext } from '../../context/auth';
 
 const schema = yup
     .object({
@@ -31,6 +30,8 @@ const schema = yup
     .required();
 
 const Login = () => {
+    const { handleLogin } = useContext(AuthContext);
+
     const {
         control,
         handleSubmit,
@@ -40,24 +41,13 @@ const Login = () => {
         mode: 'onBlur'
     });
 
-    const navigate = useNavigate();
-
     const onSubmit = async (formData: IFormData) => {
-        try {
-            const user = await api.get(
-                `users?email=${formData.email}&password=${formData.password}`
-            );
-            (await user.data.length) !== 0
-                ? navigate('/feed')
-                : alert('Usuário ou senha inválidos!');
-        } catch (error) {
-            alert('Houve um erro, tente novamente!');
-        }
+        handleLogin(formData);
     };
 
     return (
         <div>
-            <Header page="login" />
+            <Header />
 
             <Container>
                 <Title>

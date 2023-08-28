@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom';
 import Card from '../../Card';
 import UserInfo from '../../UserInfo';
 import Header from '../../Header';
@@ -8,7 +7,7 @@ import React from 'react';
 const Feed = () => {
     return (
         <div>
-            <Header page="feed" />
+            <Header />
 
             <Container>
                 <Cards>
@@ -45,9 +44,6 @@ const Feed = () => {
                     />
                 </Ranking>
             </Container>
-
-            {/* <Link to="/login">Fazer login</Link>
-            <Link to="/cadastrar">Fazer cadastro</Link> */}
         </div>
     );
 };
